@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>User Data Fetcher</title>
+    <style>
+        body{
+    background-image:url(https://png.pngtree.com/thumb_back/fh260/background/20200731/pngtree-blue-carbon-background-with-sport-style-and-golden-light-image_371487.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+div{
+    background-color: whitesmoke;
+    border-radius: 10px;
+    padding:10px;
+    margin: 130px;
+    margin-top:40px;
+    padding-bottom:20px;
+    opacity:0.8;
+}
+input{
+padding-top:5px;
+}
+button{
+    padding-top:5px;
+}
+
+        </style>
+</head>
+
+<body>
+    <center>
+        <div>
+            <h2>User Data Fetcher</h2>
+            <input type="text" placeholder="Enter User ID" id="ID">
+            <button onclick="GetId()">Fetch User Data</button>
+            <p id="Data"></p>
+            <script>
+                function GetId() {
+                    
+                    var users = [
+                        { 
+                            Id: "1",
+                             Name: "Jim Clank",
+                              Email: "jim@codeyoung.com",
+                               Phone: "947-234-933" 
+                            },
+                        { 
+                            Id: "2",
+                             Name: "Tom John",
+                              Email: "tom@codeyoung.com",
+                               Phone: "997-299-1997" 
+                            },
+                        { 
+                            Id: "3", 
+                            Name: "Bob Lark",
+                             Email: "bob@codeyoung.com",
+                              Phone: "267-244-1347"
+                             }
+                    ];
+
+                   
+                    var userinput = document.getElementById("ID").value;
+ 
+                    // I got a bit of online help for this
+                    var user = null;
+                    for (var i = 0; i < users.length; i++) {
+                        if (users[i].Id === userinput) {
+                            user = users[i];
+                            break;
+                        }
+                    }
+
+                    //This was a bit tricky
+                    var result = document.getElementById("Data");
+                    if (user) {
+                        result.innerHTML = "Id: " + user.Id + "<br>Name: " + user.Name + "<br>Email: " + user.Email + "<br>Phone: " + user.Phone;
+                    } else {
+                        result.innerHTML = "User not found.";
+                    }
+                }
+            </script>
+        </div>
+    </center>
+</body>
+
+</html>
